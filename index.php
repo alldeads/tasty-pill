@@ -199,7 +199,7 @@
         Dropzone.autoDiscover = false;
 
         var myDropzone = new Dropzone("#dropzone", { 
-            url: "/uploadRequest.php",
+            url: "./uploadRequest.php",
             autoProcessQueue: false,
             clickable: '#previewTemplate',
             previewsContainer: "#previewFile",
