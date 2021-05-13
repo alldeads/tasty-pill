@@ -109,14 +109,14 @@
                 <div class="col-6 m-auto" id="dropzone">
                     <div class="card p-3 text-center" id="previewTemplate" style="background-color: #F7F6F8">
                         <div class="card-body" id="bodyBorder">
-                            <img class="img-fluid mt-4 default-img" src="/images/body.png">
+                            <img class="img-fluid mt-4 default-img" src="./images/body.png">
                         </div>
 
                         <div class="card-body" id="previewFile" style="display: none;">
                         </div>
 
                         <div class="card-body" id="errorContainer" style="display: none;">
-                            <img class="img-fluid mt-4" src="/images/error.png">
+                            <img class="img-fluid mt-4" src="./images/error.png">
                         </div>
                     </div>
                 </div>
