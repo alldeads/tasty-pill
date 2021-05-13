@@ -199,7 +199,7 @@
         Dropzone.autoDiscover = false;
 
         var myDropzone = new Dropzone("#dropzone", { 
-            url: "./uploadRequest.php",
+            url: "https://build.tastypill.com/tasty-pill/uploadRequest.php",
             autoProcessQueue: false,
             clickable: '#previewTemplate',
             previewsContainer: "#previewFile",
