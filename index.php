@@ -7,8 +7,8 @@
     <title>Tasty Pill</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     <!-- Scripts -->
     <script src="./plugins/dist/min/dropzone.min.js"></script>
@@ -198,6 +198,8 @@
     <script>    
         Dropzone.autoDiscover = false;
 
+        var processing = false;
+
         var myDropzone = new Dropzone("#dropzone", { 
             url: "https://build.tastypill.com/tasty-pill/uploadRequest.php",
             autoProcessQueue: false,
@@ -205,12 +207,17 @@
             previewsContainer: "#previewFile",
             previewTemplate: document.querySelector('#tpl').innerHTML,
             maxFilesize: 50,
+            timeout: 360000,
             maxFiles: 1,
             acceptedFiles: ".apk, .ipa",
         });
 
         document.getElementById("submit").addEventListener("click", function() {
             myDropzone.processQueue();
+
+            var x = document.getElementsByClassName("dz-hidden-input")[0];
+
+            x.disabled = true;
         });
 
         document.getElementById("qrLink").addEventListener("click", function(ev) {
@@ -260,12 +267,26 @@
         myDropzone.on("processing", function(file) {
             document.getElementById("submit").disabled = true;
             document.getElementById("submit").innerHTML = "Processing...";
+
+            processing = true;
         });
 
         myDropzone.on("error", function(file, errorMessage, xhr) {
             var els = document.getElementsByClassName('dz-error');
+
             for(var i = 0; i < els.length; i++) { 
                 els[i].style.display='none'
+            }
+
+            if ( els.length <= 1 && !processing ) {
+                document.getElementById("bodyBorder").style.display = "none";
+                document.getElementById("previewFile").style.display = "none";
+                document.getElementById("errorContainer").style.display = "block";
+                myDropzone.removeFile(file);
+            }
+
+            if ( processing ) {
+                alert('Something went wrong with the upload, please refresh the page.')
             }
         });
 
