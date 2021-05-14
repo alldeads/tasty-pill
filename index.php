@@ -98,7 +98,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white p-4">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="https://build.tastypill.com/tasty-pill">
                     <img src="./images/logo.jpeg" width="200">
                 </a>
             </div>
@@ -126,7 +126,7 @@
                         <div class="row" id="container">
                             <div class="col-7 p-5">
                                 <h3 style="color: #695E7C; font-size: 20px; font-weight: bolder;">
-                                    <span class="fa fa-chevron-left" ></span> <a href="/" style="color: #695E7C;"> BACK</a>
+                                    <span class="fa fa-chevron-left" ></span> <a href="https://build.tastypill.com/tasty-pill" style="color: #695E7C;"> BACK</a>
                                 </h3>
 
                                 <h4 class="mt-5">Your App is ready</h4>
