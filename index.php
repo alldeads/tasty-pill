@@ -235,7 +235,7 @@
 
             var link = document.createElement("a");
             document.body.appendChild(link);
-            link.download = "qrcode.jpg";
+            link.download = "qrcode.png";
             link.href = url;
             link.target = '_blank';
             link.click();
