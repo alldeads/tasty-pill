@@ -13,6 +13,7 @@
     <!-- Scripts -->
     <script src="./plugins/dist/min/dropzone.min.js"></script>
     <script src="./js/html2canvas.min.js"></script>
+    <script src="./js/qrious.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -149,7 +150,7 @@
                             </div>
 
                             <div class="col-5 text-center" id="qrContainer">
-                                <section>;
+                                <section>
                                     <img id="qrImage" class="img-fluid" src="https://www.diawi.com/qrcode/link/ZykMAZ">
 
                                     <a class="btn mt-4 btn-style" id="qrLink" href="#">DOWNLOAD PNG
@@ -223,14 +224,21 @@
         document.getElementById("qrLink").addEventListener("click", function(ev) {
             ev.preventDefault();
 
-            html2canvas(document.body, {allowTaint: true, useCORS: true}).then(function(canvas) {
-                var link = document.createElement("a");
-                document.body.appendChild(link);
-                link.download = "qrcode.jpg";
-                link.href = canvas.toDataURL("image/jpg");
-                link.target = '_blank';
-                link.click();
+            var qrcode = document.getElementById("link-input");
+
+            var qr = new QRious({
+                value: qrcode.value,
+                size: 500
             });
+
+            let url = qr.toDataURL();
+
+            var link = document.createElement("a");
+            document.body.appendChild(link);
+            link.download = "qrcode.jpg";
+            link.href = url;
+            link.target = '_blank';
+            link.click();
         });
 
         document.getElementById("copy-btn").addEventListener("click", function() {
