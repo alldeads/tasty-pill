@@ -274,7 +274,7 @@
 
         myDropzone.on("processing", function(file) {
             document.getElementById("submit").disabled = true;
-            document.getElementById("submit").style.opacity = 0;
+            document.getElementById("submit").style.opacity = 1;
             document.getElementById("submit").innerHTML = "Processing...";
 
             processing = true;
