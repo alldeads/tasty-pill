@@ -274,6 +274,7 @@
 
         myDropzone.on("processing", function(file) {
             document.getElementById("submit").disabled = true;
+            document.getElementById("submit").style.backgroundColor = "#625775";
             document.getElementById("submit").innerHTML = "Processing...";
 
             processing = true;
@@ -324,6 +325,7 @@
             if ( progress == 100 ) {
                 $(".progress-text").text(progress + "% Complete");
                 $(".progress-text").css("color", "#4CB543");
+                document.getElementById("submit").innerHTML = "Generating...";
             }
         })
 
