@@ -275,7 +275,7 @@
         myDropzone.on("processing", function(file) {
             document.getElementById("submit").disabled = true;
             document.getElementById("submit").style.opacity = 1;
-            document.getElementById("submit").style.backgroundColor = "#807790";
+            document.getElementById("submit").style.backgroundColor = "#af9bd3";
             document.getElementById("submit").innerHTML = "Processing...";
 
             processing = true;
