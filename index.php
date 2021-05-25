@@ -207,8 +207,8 @@
             clickable: '#previewTemplate',
             previewsContainer: "#previewFile",
             previewTemplate: document.querySelector('#tpl').innerHTML,
-            maxFilesize: 50,
-            timeout: 360000,
+            maxFilesize: 250,
+            timeout: 7200000,
             maxFiles: 1,
             acceptedFiles: ".apk, .ipa",
         });
