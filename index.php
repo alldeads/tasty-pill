@@ -111,6 +111,8 @@
                     <div class="card p-3 text-center" id="previewTemplate" style="background-color: #F7F6F8">
                         <div class="card-body" id="bodyBorder">
                             <img class="img-fluid mt-4 default-img" src="./images/body.png">
+
+                            <h6 style="margin-top: -45px;">CLICK "UPLOAD GAME"</h6>
                         </div>
 
                         <div class="card-body" id="previewFile" style="display: none;">
